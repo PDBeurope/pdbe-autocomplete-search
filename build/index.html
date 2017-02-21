@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PdbeAutocompleteSearch</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    PdbeAutocompleteSearchConfig = {
+      resultBoxAlign: 'left',
+      redirectOnClick: false,
+      searchUrl: '//www.ebi.ac.uk/pdbe/search/pdb-autocomplete/select',
+      fields: 'value,num_pdb_entries,var_name',
+      group: 'group=true&group.field=category',
+      groupLimit: '25',
+      sort: 'category+asc,num_pdb_entries+desc',
+      searchParams: 'rows=20000&json.nl=map&wt=json'
+    }
+
+    document.addEventListener('PDBe.autocomplete.click', function(e){ console.log(e.eventData) })
+   </script>
+<link href="styles.5146ceef0692e6045660.bundle.css" rel="stylesheet"></head>
+<body>
+  <pdb-autocomplete-search>Loading...</pdb-autocomplete-search>
+<script type="text/javascript" src="inline.e3a714331b74b7151a27.bundle.js"></script><script type="text/javascript" src="vendor.4bb75da9a002097383be.bundle.js"></script><script type="text/javascript" src="main.185ab5ed0b5f337c6f1e.bundle.js"></script></body>
+</html>
