@@ -13,7 +13,7 @@ Refer to Angular cli (https://github.com/angular/angular-cli) to find more usefu
 ## Config object
 
 Add it to application page to customise the component
-
+```html
 PdbeAutocompleteSearchConfig = {
   resultBoxAlign: 'left',
   redirectOnClick: false,
@@ -34,3 +34,4 @@ group: 'group=true&group.field=category' (default) -- comma separated string of 
 groupLimit: '25' (default) -- group limit value
 sort: 'category+asc,num_pdb_entries+desc' (default) --  comma separated string of sorting related parameters
 additionalParams: 'rows=20000&json.nl=map&wt=json' (default) -- comma separated string of additional search parameters
+```
