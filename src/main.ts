@@ -9,4 +9,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+// if(false)platformBrowserDynamic().bootstrapModule(AppModule);
+
+document.addEventListener('PDBeWebComponentsReady',() =>{
+  platformBrowserDynamic().bootstrapModule(AppModule);
+});

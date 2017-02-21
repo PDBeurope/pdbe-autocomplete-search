@@ -6,7 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="../src/favicon.ico">
     <link href="../build/styles.bundle.css" rel="stylesheet">
+    
+</head>
+
+<body>
+    
+    <pdb-autocomplete-search></pdb-autocomplete-search>
+
+    <script type="text/javascript" src="../build/inline.bundle.js"></script>
+    <script type="text/javascript" src="../build/vendor.bundle.js"></script>
+    <script type="text/javascript" src="../build/main.bundle.js"></script>
     <script>
+
+    //Autocomplete Config Object
     PdbeAutocompleteSearchConfig = {
       resultBoxAlign: 'left',
       redirectOnClick: false,
@@ -18,18 +30,38 @@
       searchParams: 'rows=20000&json.nl=map&wt=json'
     }
 
-    document.addEventListener('PDBe.autocomplete.click', function(e){ console.log(e.eventData) })
+    //
+    document.addEventListener('PDBe.autocomplete.click', function(e){ console.log(e.eventData) });
+
+    // //Method to manually boostrap PDBe autocomplete
+
+    // // Create the event.
+    // var event = document.createEvent('MouseEvents');
+
+    // // Define that the event name is 'build'.
+    // event.initEvent('WebComponentsReady', true, true);
+
+    // // target can be any Element or other EventTarget.
+    // document.dispatchEvent(event);
+
+    //Method to manually boostrap PDBe autocomplete by dispatching custom event 'PDBeWebComponentsReady'
+    function boostarpPdbeAutocomplete(){
+
+        var event;
+        if (typeof MouseEvent == 'function') {
+            event = new MouseEvent('PDBeWebComponentsReady', { 'view': window, 'bubbles': true, 'cancelable': true });
+        } else if (typeof document.createEvent == 'function') {
+            event = document.createEvent('MouseEvents');
+            event.initEvent('PDBeWebComponentsReady', true /*bubbles*/, true /*cancelable*/);
+        }
+        //Dispatch
+        document.dispatchEvent(event);
+    }
+
+    //Boostrap component
+    boostarpPdbeAutocomplete();
+
     </script>
-</head>
-
-<body>
-    
-    <pdb-autocomplete-search></pdb-autocomplete-search>
-
-    <script type="text/javascript" src="../build/inline.bundle.js"></script>
-    <script type="text/javascript" src="../build/vendor.bundle.js"></script>
-    <script type="text/javascript" src="../build/main.bundle.js"></script>
-
 </body>
 
 </html>
